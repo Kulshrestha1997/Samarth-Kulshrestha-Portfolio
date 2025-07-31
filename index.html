@@ -64,7 +64,7 @@
             color: #1e3a8a;
         }
 
-        /* Hero Section */
+        /* Hero Section - FIXED POSITIONING */
         .hero {
             height: 100vh;
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -73,6 +73,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            padding-top: 80px; /* Added padding to push content below navbar */
         }
 
         .hero::before {
@@ -91,21 +92,36 @@
             padding: 0 2rem;
             z-index: 2;
             position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .hero h1 {
+        .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
-            max-width: 600px;
             animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-image {
+            text-align: center;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-image img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
         }
 
         .cta-button {
@@ -117,7 +133,7 @@
             border-radius: 50px;
             font-weight: 600;
             transition: transform 0.3s ease;
-            animation: fadeInUp 1s ease 0.4s both;
+            animation: fadeInUp 1s ease 0.6s both;
         }
 
         .cta-button:hover {
@@ -142,14 +158,37 @@
             font-weight: 700;
             color: #1e3a8a;
             margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
         }
 
         /* About Section */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 300px 1fr;
             gap: 4rem;
             align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #1e3a8a;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .about-text p {
@@ -163,6 +202,7 @@
             padding: 2rem;
             border-radius: 15px;
             border-left: 4px solid #1e3a8a;
+            margin-top: 2rem;
         }
 
         .timeline-item {
@@ -408,11 +448,16 @@
                 display: none;
             }
 
-            .hero h1 {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
                 font-size: 2.5rem;
             }
 
-            .hero p {
+            .hero-text p {
                 font-size: 1.1rem;
             }
 
@@ -420,6 +465,10 @@
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .about-content {
+                text-align: center;
             }
 
             .projects-grid,
@@ -477,34 +526,46 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Building Scalable Products with Real-World Impact</h1>
-            <p>I'm a Product Manager passionate about creating secure, impactful solutions that streamline complex processes—from government compliance platforms to election security systems across multiple states. Driven by measurable outcomes and technical innovation, I'm now expanding into web development to build the next generation of user-centered products that bridge technology with real-world needs.</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <div class="hero-text">
+                <h1>Building Scalable Products with Real-World Impact</h1>
+                <p>I'm a Product Manager passionate about creating secure, impactful solutions that streamline complex processes—from government compliance platforms to election security systems across multiple states. Driven by measurable outcomes and technical innovation, I'm now expanding into web development to build the next generation of user-centered products that bridge technology with real-world needs.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://drive.google.com/uc?export=view&id=1-tr0WxbjoNS2RvL2yyIDG951eufaBMii" alt="Hero Illustration">
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">
+                <img src="https://drive.google.com/uc?export=view&id=1W5ZUODwhvbvGuGHncYkt2SlMlJQ8XBx3" alt="About Me" class="section-icon">
+                About Me
+            </h2>
             <div class="about-content">
+                <div class="about-image">
+                    <img src="https://drive.google.com/uc?export=view&id=1PIIIJMQ5r-P2dDLhsiToe6D4woN2b4Bm" alt="Samarth Kulshrestha" class="profile-photo">
+                </div>
                 <div class="about-text">
                     <p>Driven by the intersection of secure technology and real-world impact, I'm a Product Manager who thrives on building solutions that matter—from streamlining government vehicle testing across states to delivering election security materials that protect democratic processes. My 3-year journey has taken me from managing high-stakes projects like IPL ticketing to coordinating anti-counterfeiting solutions across 10+ states, always focusing on measurable outcomes and cross-functional collaboration.</p>
                     
                     <p>What excites me most is bridging the gap between technical innovation and market needs—whether it's achieving a 35% improvement in retail inventory accuracy or reducing government process times by 30%. Now, I'm expanding my toolkit by diving deep into modern web development, combining my product strategy expertise with hands-on technical skills to create even more impactful, user-centered solutions in the evolving landscape of secure technology.</p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>2022 - Present</h4>
-                        <p>Product Manager - Government Tech & B2B Solutions</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>2020 - 2022</h4>
-                        <p>MBA - Business Administration</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>2017 - 2020</h4>
-                        <p>B.Com - Commerce</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>2022 - Present</h4>
+                            <p>Product Manager - Government Tech & B2B Solutions</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>2020 - 2022</h4>
+                            <p>MBA - Business Administration</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>2017 - 2020</h4>
+                            <p>B.Com - Commerce</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -514,7 +575,10 @@
     <!-- Metrics Dashboard -->
     <section class="section" style="background: #f8fafc;">
         <div class="container">
-            <h2 class="section-title">Impact by Numbers</h2>
+            <h2 class="section-title">
+                <img src="https://drive.google.com/uc?export=view&id=1DEdxfhzAORlDJd7_X7feahPCqB07ws5V" alt="Impact Numbers" class="section-icon">
+                Impact by Numbers
+            </h2>
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-number">30%</div>
@@ -539,7 +603,10 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Key Projects</h2>
+            <h2 class="section-title">
+                <img src="https://drive.google.com/uc?export=view&id=1QNSnNWwKWrj-mF4WRlhMLLjFRx1tY-LZ" alt="Key Projects" class="section-icon">
+                Key Projects
+            </h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>Government Vehicle Emission Compliance Software</h3>
@@ -612,7 +679,10 @@
     <!-- Skills Section -->
     <section id="skills" class="section" style="background: #f8fafc;">
         <div class="container">
-            <h2 class="section-title">Skills & Tools</h2>
+            <h2 class="section-title">
+                <img src="https://drive.google.com/uc?export=view&id=1fH2lJqYKZi9OnKgdW3oZ8LYC2TbqujAI" alt="Skills & Tools" class="section-icon">
+                Skills & Tools
+            </h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-tasks"></i> Product & Project Management</h3>
@@ -689,7 +759,10 @@
     <!-- Testimonials Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">What People Say</h2>
+            <h2 class="section-title">
+                <img src="https://drive.google.com/uc?export=view&id=19PTVVt6QxaiWbWdpunYuQ0ZPtyxmfgpg" alt="Testimonials" class="section-icon">
+                What People Say
+            </h2>
             <div class="testimonial">
                 <p>"Your expertise with AI tools and generative AI applications has revolutionized how we approach product development. You have this natural ability to conduct thorough research and translate complex insights into actionable strategies."</p>
                 <div class="testimonial-author">- Leadership Team</div>
@@ -704,14 +777,17 @@
     <!-- Resume Section -->
     <section id="resume" class="section resume-section">
         <div class="container">
-            <h2 class="section-title">Resume</h2>
+            <h2 class="section-title">
+                <img src="https://drive.google.com/uc?export=view&id=19YnKMHvl-zhvO0ECr6QuO3YM8VtVMHmi" alt="Resume" class="section-icon">
+                Resume
+            </h2>
             <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; margin: 2rem 0;">
                 <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Samarth Kulshrestha</h3>
                 <p style="margin-bottom: 1rem;">Product Manager | Government Tech | B2B Solutions</p>
                 <p style="color: #6b7280;">Complete resume with detailed experience, education, and achievements</p>
             </div>
             <div class="resume-download">
-                <a href="#" class="download-btn">
+                <a href="https://drive.google.com/uc?export=download&id=1FCjyHddMwveADeVsrcrWWATYOfWsY_0B" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> Download Resume PDF
                 </a>
             </div>
@@ -721,7 +797,10 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <h2 class="section-title" style="color: white;">
+                <img src="https://drive.google.com/uc?export=view&id=1fCiUGbNCoodp4nAwkVSBIKnmmYyGzacQ" alt="Contact" class="section-icon" style="filter: brightness(0) invert(1);">
+                Get In Touch
+            </h2>
             <div class="contact-content">
                 <div class="contact-form">
                     <input type="text" placeholder="Your Name" required>
@@ -733,6 +812,10 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>Samarthkulshrestha0@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8077937891</span>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
